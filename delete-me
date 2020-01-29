@@ -13,6 +13,16 @@
 
 </div>
 
+use this
+<div class="box">
+  <?xml version="1.0" standalone="no"?>
+<svg width="100%" height="100" viewBox="0 0 881 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M441 72C480.765 72 513 39.7645 513 0H881V82H0V0H369C369 39.7645 401.235 72 441 72Z" fill="#C4C4C4"/>
+</svg>
+  <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed dui eu tellus iaculis auctor sit amet eu ante. Morbi pulvinar viverra turpis ut tristique. Vivamus eget turpis et felis lobortis maximus. Aenean tempus molestie semper. Ut fringilla nisi ut nibh pharetra congue. Vivamus et ornare dolor, vel consectetur elit. Praesent quis odio diam. Vestibulum nec aliquam libero, a mattis lorem.</div>
+
+</div>
+
 
 path {
     fill: green;
@@ -24,4 +34,23 @@ path {
   display: flex;
   justify-content: center;
 }
+
+use this
+body {
+  background: red;
+  margin-top: 2rem;
+}
+path {
+    fill: green;
+}
+
+.box {
+  background: blue;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 

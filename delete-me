@@ -52,5 +52,32 @@ path {
   align-items: center;
 }
 
+btn
 
+body {
+  background: red;
+}
+svg {
+  background: green;
+}
+.path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 1000;
+  animation: dash 2s linear forwards;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 822;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+<svg width="200" height='50'>
+
+  <path class="path" fill="transparent" stroke="black" stroke-width="1" d="m0.5,2.052758l0.407508,24.2813l53.092491,-0.582155l-0.232862,-23.751904l-53.267137,0.052758z"/>
+  
+</svg>
 

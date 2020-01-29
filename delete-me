@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="no"?>
+<div class="box">
+  <svg width="100%" height="100%" viewBox="0 0 881 401" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M440.5 145C520.305 145 585 80.3051 585 0.5C585 0.333267 585 0.166595 584.999 0H881V401H0V0H296.001C296 0.166595 296 0.333267 296 0.5C296 80.3051 360.695 145 440.5 145Z" fill="#C4C4C4"/>
+  </svg>
+</div>
+
+<?xml version="1.0" standalone="no"?>
+<div class="box">
+  <svg width="100%" height="100%" viewBox="0 0 881 401" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M441 72C480.765 72 513 39.7645 513 0H881V401H0V0H369C369 39.7645 401.235 72 441 72Z" fill="#C4C4C4"/>
+</svg>
+
+</div>
+
+
+path {
+    fill: green;
+}
+
+.box {
+  background: blue;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+

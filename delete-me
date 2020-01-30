@@ -43,7 +43,8 @@
 </div>
 
 
-btn
+BUTTONS
+https://webdevtrick.com/svg-button-hover-animation/
 https://codepen.io/determin1st/pen/ZBZQzw
 
 <div class="container">
@@ -61,7 +62,8 @@ https://codepen.io/determin1st/pen/ZBZQzw
 </div>
   </div>
   
-  body {
+  
+body {
     background: gray;
 }
 .buttons {
@@ -88,9 +90,9 @@ svg {
   stroke-width: 1px;
   fill: transparent;
   stroke: #FFF;
-  stroke-dasharray: 0 500;
+  stroke-dasharray: 0 600;
   stroke-dashoffset: -120;
-  transition: 350ms all ease;
+  transition: 1s all ease;
 }
 #btn-text {
   //border: 1px solid gold;
@@ -120,7 +122,7 @@ a::before {
 }
 
 .wrapper:hover #btn {
-  stroke-dasharray: 350 0;
+  stroke-dasharray: 300 0;
   stroke-width: 1px;
   stroke-dashoffset: 0;
   stroke: #fff;

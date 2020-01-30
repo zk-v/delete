@@ -46,30 +46,82 @@
 btn
 https://codepen.io/determin1st/pen/ZBZQzw
 
-body {
-  background: red;
+<div class="container">
+<div id="main">
+  <div class="buttons">
+ 
+    <div class="wrapper">
+      <svg height="45" width="150" xmlns="http://www.w3.org/2000/svg"> 
+        <rect id="btn" height="45" width="100" x="40"/> 
+        <div id="btn-text"> 
+          <a href="">Mehr</a>
+        </div>
+      </svg>
+    </div>
+</div>
+  </div>
+  
+  body {
+    background: gray;
+}
+.buttons {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+
+}
+#main {
+  position: absolute;
+}
+.wrapper {
+  //border: 1px solid pink;
+  height: 45px;
 }
 svg {
+  //border: 1px solid blue;
+}
+#btn {
+  stroke-width: 1px;
+  fill: transparent;
+  stroke: #FFF;
+  stroke-dasharray: 0 500;
+  stroke-dashoffset: -120;
+  transition: 350ms all ease;
+}
+#btn-text {
+  //border: 1px solid gold;
+  margin-top: -35px;
+  margin-left: 30px;
+  text-align: center;
+}
+
+#btn-text {
+  position: relative;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  height: 1px;
+  width: 35px;
+  margin-right: 15px;
   background: green;
 }
-.path {
-  stroke-dasharray: 800;
-  stroke-dashoffset: 1000;
-  animation: dash 2s linear forwards;
+
+.wrapper:hover #btn {
+  stroke-dasharray: 350 0;
+  stroke-width: 1px;
+  stroke-dashoffset: 0;
+  stroke: #fff;
 }
-
-@keyframes dash {
-  from {
-    stroke-dashoffset: 822;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-<svg width="200" height='50'>
-
-  <path class="path" fill="transparent" stroke="black" stroke-width="1" d="m0.5,2.052758l0.407508,24.2813l53.092491,-0.582155l-0.232862,-23.751904l-53.267137,0.052758z"/>
-  
-</svg>
-

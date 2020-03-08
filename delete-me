@@ -215,3 +215,126 @@ function moveToFour() {
 }
 
 https://codepen.io/sianuro/pen/Kvnog
+
+
+<template>
+    <div class="container p-4 flex flex-wrap mx-auto">
+        <div class="rule w-full lg:w-9/12" data-content="container">
+            <label 
+                v-show="file === false" 
+                id="dropzone" 
+                class="w-full cursor-pointer flex flex-col justify-center items-center p-20 bg-gray-300 border-2 border-blue-200 border-dashed"
+                style="height: 80vh;"
+            >
+                <input 
+                    type="file" 
+                    @change="uploadImage" 
+                    class="hidden w-full"
+                />
+                <div class=" text-white block text-center text-6xl"><i class="fa fa-cloud-upload" aria-hidden="true"></i></div>
+                <div class="bg-blue-400 py-2 px-4 text-white font-semibold uppercase border border-blue-500">Upload image</div>
+            </label>
+            <div class="w-full overflow-auto" style="height: 80vh;" v-show="file">
+                <canvas id="canvas" ></canvas>
+            </div>
+        </div>
+        <div class="w-full lg:w-3/12 px-2">
+        <div>
+            <input type="text" v-model="title">
+        </div>
+            <div class="flex items-center">
+                <div class="w-full px-2" @keyup="resizeImage(imageHeight, imageWidth)">
+                    <label>
+                        <input id="width" v-model="imageWidth"  type="text"  class="bg-gray-300 p-2 my-1 w-full">
+                    </label>
+                    <label>
+                        <input id="height" v-model="imageHeight" type="text" class="bg-gray-300 p-2 my-1 w-full">
+                    </label>
+                    {{ imageWidth }} x {{ imageHeight }}
+                </div>
+                <button class="h-8 w-8 flex justify-center items-center bg-blue-400 py-2 px-4 text-white font-semibold uppercase border border-blue-500">
+                    <i class="fa fa-link" aria-hidden="true"></i>
+                </button>
+            </div>
+            <button class="m-2 h-8 w-8 flex justify-center items-center bg-blue-400 py-2 px-4 text-white font-semibold uppercase border border-blue-500">
+                <i class="fa fa-crop" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div class="w-full flex -mx-2 justify-end mt-10">
+            <button class="w-1/12 text-center mx-2 py-2 px-4 text-blue-400 font-semibold uppercase border border-blue-500">Cancel</button>
+            <a href="#" class="save w-1/12 text-center mx-2 bg-blue-400 py-2 px-4 text-white font-semibold uppercase border border-blue-500" @click="saveImage()" target="_blank" download>Save</a>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            file: false,
+            uploaded: '',
+            imageHeight: 0,
+            imageWidth: 0,
+            title: ''
+            
+        }
+    },
+    methods: {
+        uploadImage(event) {
+            this.file = true;
+            this.uploaded = event.target.files;
+            let reader = new FileReader();
+            reader.onload = (event) => {
+                this.createImage()
+            }
+            reader.readAsDataURL(this.uploaded[0]);
+
+            this.title = this.uploaded[0].name;
+        },
+        createImage() {
+                let canvas = document.getElementById('canvas');
+                var ctx = canvas.getContext('2d');
+                var img = new Image();
+                
+                img.onload = function () {
+                    canvas.height = img.height;
+                    canvas.width = img.width
+                    
+                    ctx.drawImage(img, 0, 0);
+                }
+
+                this.imageHeight = canvas.height
+                this.imageWidth = canvas.width
+                img.src = event.target.result;
+        }, 
+        resizeImage(x, y) {
+            let reader = new FileReader();
+            reader.onload = (event) => {
+                let canvas = document.getElementById('canvas');
+                var ctx = canvas.getContext('2d');
+                var img = new Image();
+                
+                img.onload = function () {
+                    canvas.width = x;
+                    canvas.height = y;
+                    ctx.drawImage(img, 0, 0, x, y);
+                }
+                img.src = event.target.result;
+            }
+            reader.readAsDataURL(this.uploaded[0]);
+        },
+        saveImage() {
+            let canvas = document.getElementById('canvas');
+            var dataURL = canvas.toDataURL('image/png');
+            let save = document.querySelector('.save')
+            var newdata = dataURL.replace(/^data:image\/png/,'data:application/octet-stream');
+            save.setAttribute('download', this.title);
+            save.href = dataURL;
+        }
+    }
+}
+</script>
+
+<style scoped lang="scss">
+</style>
+
